@@ -1,0 +1,11 @@
+.hero {
+  max-height: 166px;
+  max-width: 1440px;
+  background-image: url('./../../images/Picture.jpg');
+  background-repeat: no-repeat;
+  block-size: cover;
+}
+
+.title {
+  padding-top: 260px;
+}

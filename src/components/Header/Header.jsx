@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import css from './Header.module.css';
 
 const Header = () => {
@@ -11,14 +12,19 @@ const Header = () => {
           <use href="../../assets/logo.svg"></use>
         </svg>
       </a> */}
-      <ul className={css.list}>
+
+      <nav className={css.list}>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/catalog">Catalog</NavLink>
+      </nav>
+      {/* <ul className={css.list}>
         <li>
           <a>Home</a>
         </li>
         <li>
           <a>Catalog</a>
         </li>
-      </ul>
+      </ul> */}
     </header>
   );
 };

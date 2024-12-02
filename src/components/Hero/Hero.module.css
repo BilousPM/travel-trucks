@@ -1,11 +1,28 @@
 .hero {
-  max-height: 166px;
   max-width: 1440px;
+  padding: 260px 64px;
   background-image: url('./../../images/Picture.jpg');
   background-repeat: no-repeat;
-  block-size: cover;
+  background-size: cover;
+  margin: 0 auto;
+  outline: 1px solid red;
 }
 
 .title {
-  padding-top: 260px;
+  color: #f7f7f7;
+  margin-bottom: 16px;
+  font-family: Inter;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 66.7%;
+}
+
+.subTitle {
+  color: #f7f7f7;
+  margin-bottom: 40px;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 133.333%;
 }

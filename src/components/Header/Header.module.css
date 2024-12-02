@@ -1,0 +1,26 @@
+.header {
+  padding: 0 64px;
+  max-width: 1440px;
+  display: flex;
+  align-items: center;
+  color: rgba(242, 244, 247, 1);
+  outline: 1px solid red;
+}
+
+.logo {
+  margin-right: 450px;
+  color: #101828;
+  font-weight: 900;
+  font-size: 13px;
+  span {
+    color: #475467;
+  }
+}
+
+.list {
+  display: flex;
+  gap: 32px;
+  color: #101828;
+  font-weight: 500;
+  padding: 24px 0;
+}

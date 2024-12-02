@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import css from './Header.module.css';
 
 const Header = () => {
@@ -7,6 +6,11 @@ const Header = () => {
       <a className={css.logo}>
         Travel<span>Tracks</span>
       </a>
+      {/* <a>
+        <svg width="136" height="16">
+          <use href="../../assets/logo.svg"></use>
+        </svg>
+      </a> */}
       <ul className={css.list}>
         <li>
           <a>Home</a>

@@ -5,6 +5,7 @@
   align-items: center;
   color: rgba(242, 244, 247, 1);
   outline: 1px solid red;
+  margin: 0 auto;
 }
 
 .logo {

@@ -1,0 +1,12 @@
+.card {
+  border: 1px solid #dadde1;
+  border-radius: 20px;
+  background-color: #fff;
+  padding: 24px;
+  display: flex;
+}
+
+.imgWrapper {
+  background-color: teal;
+  border-radius: 10px;
+}

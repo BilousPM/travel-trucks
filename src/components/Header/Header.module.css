@@ -10,12 +10,6 @@
 
 .logo {
   margin-right: 450px;
-  color: #101828;
-  font-weight: 900;
-  font-size: 13px;
-  span {
-    color: #475467;
-  }
 }
 
 .list {
@@ -23,5 +17,8 @@
   gap: 32px;
   color: #101828;
   font-weight: 500;
+}
+
+.listItem {
   padding: 24px 0;
 }

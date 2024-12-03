@@ -1,7 +1,12 @@
+import { NavLink } from 'react-router-dom';
 import css from './PrimaryButton.module.css';
 
 const PrimaryButton = () => {
-  return <button className={css.button}>View Now</button>;
+  return (
+    <NavLink to="/catalog" className={css.button}>
+      View Now
+    </NavLink>
+  );
 };
 
 export default PrimaryButton;

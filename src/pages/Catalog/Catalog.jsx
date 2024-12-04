@@ -11,7 +11,7 @@ const Catalog = () => {
       <section className={css.catalog}>
         <div>
           <LocationForm />
-          <PrimaryButton />
+          <PrimaryButton label="Search" />
         </div>
         <div>
           <CamperCard />

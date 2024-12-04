@@ -13,7 +13,7 @@ const CamperCard = () => {
         <p>4.4(2 Reviews)</p>
         <p>Kyiv, Ukraine</p>
         <p>Embrace simplicity and freedom with the Mavericks panel truck...</p>
-        <PrimaryButton />
+        <PrimaryButton label="Show more" />
       </div>
     </div>
   );

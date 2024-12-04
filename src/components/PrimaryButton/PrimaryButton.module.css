@@ -2,14 +2,14 @@
   display: inline-block;
   color: #f7f7f7;
   background-color: #e44848;
-  padding: 16px 48px;
+  padding: 16px;
+  min-width: 166px;
   border-radius: 200px;
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px;
-  line-height: 150%;
-
+  line-height: 1.5;
+  text-align: center;
   letter-spacing: -0.08px;
 }

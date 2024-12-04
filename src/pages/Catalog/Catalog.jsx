@@ -3,6 +3,7 @@ import css from './Catalog.module.css';
 import PrimaryButton from '../../components/PrimaryButton/PrimaryButton';
 import CamperCard from '../../components/CamperCard/CamperCard';
 import LocationForm from '../../components/LocationForm/LocationForm.jsx';
+import VehicleEqpt from '../../components/VehicleEqpt/VehicleEqpt.jsx';
 
 const Catalog = () => {
   return (
@@ -11,6 +12,8 @@ const Catalog = () => {
       <section className={css.catalog}>
         <div>
           <LocationForm />
+          <p>Filters</p>
+          <VehicleEqpt />
           <PrimaryButton label="Search" />
         </div>
         <div>

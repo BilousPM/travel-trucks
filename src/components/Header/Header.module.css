@@ -3,8 +3,8 @@
   max-width: 1440px;
   display: flex;
   align-items: center;
-  color: rgba(242, 244, 247, 1);
-  outline: 1px solid red;
+  background-color: #f7f7f7;
+  /* outline: 1px solid red; */
   margin: 0 auto;
 }
 
@@ -15,10 +15,15 @@
 .list {
   display: flex;
   gap: 32px;
-  color: #101828;
-  font-weight: 500;
+  :hover {
+    color: #d84343;
+  }
 }
 
 .listItem {
   padding: 24px 0;
+  font-weight: 500;
+  color: #101828;
+
+  transition: color 250ms ease;
 }

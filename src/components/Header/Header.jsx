@@ -7,11 +7,11 @@ const Header = () => {
       <NavLink to="/" className={css.logo}>
         <img src="/src/assets/Logo.svg" alt="SVG image" />
       </NavLink>
-      <nav className={css.list}>
-        <NavLink to="/" className={css.listItem}>
+      <nav className={css.nav}>
+        <NavLink to="/" className={css.nav_link}>
           Home
         </NavLink>
-        <NavLink to="/catalog" className={css.listItem}>
+        <NavLink to="/catalog" className={css.nav_link}>
           Catalog
         </NavLink>
       </nav>

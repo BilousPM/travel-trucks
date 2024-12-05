@@ -4,6 +4,7 @@ import PrimaryButton from '../../components/PrimaryButton/PrimaryButton';
 import CamperCard from '../../components/CamperCard/CamperCard';
 import LocationForm from '../../components/LocationForm/LocationForm.jsx';
 import VehicleEqpt from '../../components/VehicleEqpt/VehicleEqpt.jsx';
+import { useState } from 'react';
 
 const Catalog = () => {
   return (

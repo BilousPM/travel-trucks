@@ -1,29 +1,40 @@
 .header {
-  padding: 0 64px;
-  max-width: 1440px;
   display: flex;
   align-items: center;
-  background-color: #f7f7f7;
-  /* outline: 1px solid red; */
+
+  max-width: 1440px;
+  padding: 0 64px;
   margin: 0 auto;
+
+  background-color: #f7f7f7;
 }
 
 .logo {
+  padding: 20px 0;
   margin-right: 450px;
+  transform: scale(1);
+  transition: transform 250ms;
 }
 
-.list {
+.logo:hover {
+  transform: scale(1.2);
+}
+
+.nav {
   display: flex;
   gap: 32px;
-  :hover {
-    color: #d84343;
-  }
 }
 
-.listItem {
+.nav_link {
   padding: 24px 0;
+
   font-weight: 500;
   color: #101828;
 
-  transition: color 250ms ease;
+  transition: color 250ms;
+}
+
+.nav_link:hover,
+.nav_link:active {
+  color: #d84343;
 }

@@ -1,7 +1,6 @@
-import PrimaryButton from '../PrimaryButton/PrimaryButton.jsx';
+import { NavLink } from 'react-router-dom';
 import css from './Hero.module.css';
 
-const style = { minWidth: '173px' };
 const Hero = () => {
   return (
     <section className={css.hero}>
@@ -9,7 +8,7 @@ const Hero = () => {
       <h2 className={css.subTitle}>
         You can find everything you want in our catalog
       </h2>
-      <PrimaryButton label="View Now" style={style}></PrimaryButton>
+      <NavLink className={css.button}>View Now</NavLink>
     </section>
   );
 };

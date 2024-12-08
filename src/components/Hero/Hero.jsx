@@ -8,7 +8,9 @@ const Hero = () => {
       <h2 className={css.subTitle}>
         You can find everything you want in our catalog
       </h2>
-      <NavLink className={css.button}>View Now</NavLink>
+      <NavLink to="/catalog" className={css.button}>
+        View Now
+      </NavLink>
     </section>
   );
 };

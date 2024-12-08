@@ -3,18 +3,17 @@ import css from './Catalog.module.css';
 import PrimaryButton from '../../components/PrimaryButton/PrimaryButton';
 import CamperCard from '../../components/CamperCard/CamperCard';
 import LocationForm from '../../components/LocationForm/LocationForm.jsx';
-import VehicleEqpt from '../../components/VehicleEqpt/VehicleEqpt.jsx';
 import { useState } from 'react';
+import Filters from '../../components/Filters/Filters.jsx';
 
 const Catalog = () => {
   return (
     <>
       <Header />
       <section className={css.catalog}>
-        <div>
+        <div className={css.rightWrapper}>
           <LocationForm />
-          <p>Filters</p>
-          <VehicleEqpt />
+          <Filters />
           <PrimaryButton label="Search" />
         </div>
         <div>

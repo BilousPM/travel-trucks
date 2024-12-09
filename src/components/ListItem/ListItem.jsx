@@ -1,7 +1,8 @@
 import GridItem from '../GridItem/GridItem.jsx';
-import css from './EquipmentListItem.module.css';
+import css from './ListItem.module.css';
 
-const EquipmentListItem = ({ label }) => {
+const ListItem = ({ label }) => {
+  console.log(label);
   return (
     <GridItem>
       <div className={css.item}>
@@ -11,4 +12,4 @@ const EquipmentListItem = ({ label }) => {
   );
 };
 
-export default EquipmentListItem;
+export default ListItem;

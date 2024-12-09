@@ -3,9 +3,9 @@ import css from './Catalog.module.css';
 import PrimaryButton from '../../components/PrimaryButton/PrimaryButton';
 import CamperCard from '../../components/CamperCard/CamperCard';
 import LocationForm from '../../components/LocationForm/LocationForm.jsx';
-import { useState } from 'react';
 import Filters from '../../components/Filters/Filters.jsx';
 import VehicleEquipment from '../../components/VehicleEquipment/VehicleEquipment.jsx';
+import VehicleType from '../../components/VehicleType/VehicleType.jsx';
 
 const Catalog = () => {
   return (
@@ -16,6 +16,7 @@ const Catalog = () => {
           <LocationForm />
           <Filters>
             <VehicleEquipment />
+            <VehicleType />
           </Filters>
           <PrimaryButton label="Search" />
         </div>

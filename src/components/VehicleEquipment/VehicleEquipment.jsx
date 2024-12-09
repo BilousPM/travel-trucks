@@ -1,4 +1,4 @@
-import EquipmentListItem from '../EquipmentListItem/EquipmentListItem.jsx';
+import ListItem from '../ListItem/ListItem.jsx';
 import Grid from '../Grid/Grid.jsx';
 import css from './VehicleEquipment.module.css';
 
@@ -12,12 +12,12 @@ const equipment = [
 
 const VehicleEquipment = () => {
   return (
-    <div>
+    <div className={css.equipmentWrapper}>
       <h2 className={css.title}>Vehicle equipment</h2>
       <div className={css.line}></div>
       <Grid>
         {equipment.map(({ label, index }) => (
-          <EquipmentListItem key={index} label={label} />
+          <ListItem key={index} label={label} />
         ))}
       </Grid>
     </div>

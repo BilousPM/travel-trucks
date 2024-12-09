@@ -1,8 +1,9 @@
 .button {
-  display: inline-block;
+  align-self: flex-start;
   color: #f7f7f7;
   background-color: #e44848;
   padding: 16px;
+
   min-width: 166px;
   border-radius: 200px;
   font-family: Inter;

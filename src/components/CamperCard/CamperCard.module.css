@@ -7,6 +7,10 @@
   gap: 24px;
 }
 
+.card:last-child {
+  margin-bottom: 40px;
+}
+
 .imgWrapper {
   background-color: rgb(60, 223, 10);
   border-radius: 10px;

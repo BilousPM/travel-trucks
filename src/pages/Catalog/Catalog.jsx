@@ -37,7 +37,9 @@ const Catalog = () => {
               </CamperCard>
             </>
           ))}
-          ;
+          <button type="button" className={css.loadMore}>
+            Load more
+          </button>
         </div>
       </section>
     </>

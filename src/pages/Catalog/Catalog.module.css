@@ -2,7 +2,7 @@
   background-color: #fff;
   display: flex;
   gap: 64px;
-  padding: 48px 64px 0 64px;
+  padding: 48px 64px 52px 64px;
   outline: 1px solid red;
   max-width: 1440px;
   margin: 0 auto;
@@ -19,4 +19,19 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
+}
+
+.loadMore {
+  align-self: flex-start;
+  padding: 16px 32px;
+  border-radius: 200px;
+  border: 1px solid #dadde1;
+  margin: 0 auto;
+
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.08px;
 }

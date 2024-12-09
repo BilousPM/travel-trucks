@@ -14,3 +14,9 @@
   gap: 40px;
   width: 360px;
 }
+
+.leftWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}

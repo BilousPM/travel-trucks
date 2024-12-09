@@ -20,8 +20,10 @@ const Catalog = () => {
           </Filters>
           <PrimaryButton label="Search" />
         </div>
-        <div>
-          <CamperCard />
+        <div className={css.leftWrapper}>
+          <CamperCard>
+            <PrimaryButton label="Show more" />
+          </CamperCard>
         </div>
       </section>
     </>

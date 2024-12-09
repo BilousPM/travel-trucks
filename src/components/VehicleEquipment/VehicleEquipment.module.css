@@ -17,8 +17,9 @@
   margin-bottom: 24px;
 }
 
-.title::after {
+.line {
   width: 360px;
   height: 1px;
-  background-color: #fff;
+  background-color: #dadde1;
+  margin-bottom: 24px;
 }

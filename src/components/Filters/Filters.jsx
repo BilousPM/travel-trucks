@@ -1,11 +1,10 @@
-import VehicleEqpt from '../VehicleEqpt/VehicleEqpt.jsx';
 import css from './Filters.module.css';
 
-const Filters = () => {
+const Filters = ({ children }) => {
   return (
     <div>
       <p className={css.filter}>Filters</p>
-      <VehicleEqpt />
+      {children}
     </div>
   );
 };

@@ -5,6 +5,7 @@ import CamperCard from '../../components/CamperCard/CamperCard';
 import LocationForm from '../../components/LocationForm/LocationForm.jsx';
 import { useState } from 'react';
 import Filters from '../../components/Filters/Filters.jsx';
+import VehicleEquipment from '../../components/VehicleEquipment/VehicleEquipment.jsx';
 
 const Catalog = () => {
   return (
@@ -13,7 +14,9 @@ const Catalog = () => {
       <section className={css.catalog}>
         <div className={css.rightWrapper}>
           <LocationForm />
-          <Filters />
+          <Filters>
+            <VehicleEquipment />
+          </Filters>
           <PrimaryButton label="Search" />
         </div>
         <div>

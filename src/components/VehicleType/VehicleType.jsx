@@ -2,7 +2,7 @@ import ListItem from '../ListItem/ListItem.jsx';
 import Grid from '../Grid/Grid.jsx';
 import css from '../VehicleEquipment/VehicleEquipment.module.css';
 
-const vehicleTypes = ['Van', 'Fully Integrated', 'Alcove', 'Alcove'];
+const vehicleTypes = ['Van', 'Fully Integrated', 'Alcove'];
 
 const VehicleType = () => {
   return (

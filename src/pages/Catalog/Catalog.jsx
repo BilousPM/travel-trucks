@@ -20,7 +20,7 @@ const Catalog = () => {
     <>
       <Header />
       <section className={css.catalog}>
-        <div className={css.rightWrapper}>
+        <div>
           <LocationForm />
           <Filters>
             <VehicleEquipment />
@@ -28,15 +28,17 @@ const Catalog = () => {
           </Filters>
           <PrimaryButton label="Search" />
         </div>
-        <div className={css.leftWrapper}>
-          {catalog.map(car => (
-            <>
-              <CamperCard name={car}>
-                <FeaturesList />
-                <PrimaryButton label="Show more" />
-              </CamperCard>
-            </>
-          ))}
+        <div>
+          <ul>
+            {catalog.map((car, index) => (
+              <li key={index} className={css.listItem}>
+                <CamperCard name={car}>
+                  <FeaturesList />
+                  <PrimaryButton label="Show more" />
+                </CamperCard>
+              </li>
+            ))}
+          </ul>
           <button type="button" className={css.loadMore}>
             Load more
           </button>

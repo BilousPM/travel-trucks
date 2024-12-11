@@ -16,7 +16,7 @@ const VehicleEquipment = () => {
       <h2 className={css.title}>Vehicle equipment</h2>
       <div className={css.line}></div>
       <Grid>
-        {equipment.map(({ label, index }) => (
+        {equipment.map(({ label }, index) => (
           <ListItem key={index} label={label} />
         ))}
       </Grid>

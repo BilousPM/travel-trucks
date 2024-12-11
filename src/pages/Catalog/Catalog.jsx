@@ -7,15 +7,29 @@ import Filters from '../../components/Filters/Filters.jsx';
 import VehicleEquipment from '../../components/VehicleEquipment/VehicleEquipment.jsx';
 import VehicleType from '../../components/VehicleType/VehicleType.jsx';
 import FeaturesList from '../../components/FeaturesList/FeaturesList.jsx';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-const catalog = [
-  'Mavericks',
-  'Kuga Camper',
-  'Road Bear C 23-25',
-  'Mighty Class C Medium [MD]',
-];
+// const catalog = [
+//   'Mavericks',
+//   'Kuga Camper',
+//   'Road Bear C 23-25',
+//   'Mighty Class C Medium [MD]',
+// ];
 
 const Catalog = () => {
+  const [campers, setCampers] = useState([]);
+
+  useEffect(() => {
+    const fetchCampersList = async () => {
+      const response = await axios.get(
+        'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers',
+      );
+      setCampers(response.data.items);
+    };
+    fetchCampersList();
+  }, []);
+
   return (
     <>
       <Header />
@@ -30,9 +44,9 @@ const Catalog = () => {
         </div>
         <div>
           <ul>
-            {catalog.map((car, index) => (
+            {campers.map((camper, index) => (
               <li key={index} className={css.listItem}>
-                <CamperCard name={car}>
+                <CamperCard camper={camper}>
                   <FeaturesList />
                   <PrimaryButton label="Show more" />
                 </CamperCard>

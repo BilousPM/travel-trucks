@@ -1,16 +1,22 @@
 import css from './CamperCard.module.css';
 
-const CamperCard = ({ children, name }) => {
+const CamperCard = ({ children, camper }) => {
+  console.log(camper.gallery[0].original);
   return (
     <div className={css.card}>
       <div className={css.imgWrapper}>
-        <img src="" alt="Vehicle" width={292} height={320} />
+        <img
+          src={camper.gallery[0].thumb}
+          alt="Vehicle"
+          width={292}
+          height={320}
+        />
       </div>
       <div className={css.rightWrapper}>
         <div>
           <div className={css.headerWrapper}>
-            <h2 className={css.name}>{name}</h2>
-            <p className={css.price}>€8000.00</p>
+            <h2 className={css.name}>{camper.name}</h2>
+            <p className={css.price}>€{camper.price}</p>
           </div>
           <div className={css.reviewsWrapper}>
             <p>4.4(2 Reviews)</p>

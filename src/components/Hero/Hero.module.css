@@ -10,6 +10,7 @@
   background-size: cover;
 
   color: #f7f7f7;
+  /* color: var(--main-text-color); */
 }
 
 .title {

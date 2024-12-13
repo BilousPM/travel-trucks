@@ -1,16 +1,18 @@
+import PrimaryButton from '../PrimaryButton/PrimaryButton.jsx';
 import css from './CamperCard.module.css';
 
-const CamperCard = ({ children, camper }) => {
-  console.log(camper.gallery[0].original);
+const CamperCard = ({ camper }) => {
+  // console.log(camper.gallery[0].original);
   return (
     <div className={css.card}>
       <div className={css.imgWrapper}>
         <img
-          src={camper.gallery[0].thumb}
+          src={camper.gallery[0].original}
           alt="Vehicle"
           width={292}
           height={320}
         />
+        ’
       </div>
       <div className={css.rightWrapper}>
         <div>
@@ -26,7 +28,8 @@ const CamperCard = ({ children, camper }) => {
         <p className={css.text}>
           Embrace simplicity and freedom with the Mavericks panel truck...
         </p>
-        {children}
+        {/* <FeaturesList /> */}
+        <PrimaryButton label="Show more" />
       </div>
     </div>
   );

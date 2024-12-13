@@ -7,13 +7,8 @@
   gap: 24px;
 }
 
-.imgWrapper {
-  background-color: rgb(60, 223, 10);
-  border-radius: 10px;
-}
-
 .headerWrapper {
-  width: 524px;
+  /* width: 524px; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -52,4 +47,18 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+
+.imgWrapper {
+  width: 292px;
+  height: 320px;
+  background-color: lightslategray;
+  border-radius: 10px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }

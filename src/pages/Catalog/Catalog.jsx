@@ -6,16 +6,8 @@ import LocationForm from '../../components/LocationForm/LocationForm.jsx';
 import Filters from '../../components/Filters/Filters.jsx';
 import VehicleEquipment from '../../components/VehicleEquipment/VehicleEquipment.jsx';
 import VehicleType from '../../components/VehicleType/VehicleType.jsx';
-import FeaturesList from '../../components/FeaturesList/FeaturesList.jsx';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
-// const catalog = [
-//   'Mavericks',
-//   'Kuga Camper',
-//   'Road Bear C 23-25',
-//   'Mighty Class C Medium [MD]',
-// ];
 
 const Catalog = () => {
   const [campers, setCampers] = useState([]);
@@ -30,12 +22,14 @@ const Catalog = () => {
     fetchCampersList();
   }, []);
 
+  console.log(campers);
+
   return (
     <>
       <Header />
       <section className={css.catalog}>
         <div>
-          <LocationForm />
+          {/* <LocationForm /> */}
           <Filters>
             <VehicleEquipment />
             <VehicleType />
@@ -46,10 +40,7 @@ const Catalog = () => {
           <ul>
             {campers.map((camper, index) => (
               <li key={index} className={css.listItem}>
-                <CamperCard camper={camper}>
-                  <FeaturesList />
-                  <PrimaryButton label="Show more" />
-                </CamperCard>
+                <CamperCard camper={camper} />
               </li>
             ))}
           </ul>

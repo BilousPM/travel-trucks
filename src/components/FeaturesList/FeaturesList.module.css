@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  height: 104px;
+  /* height: 104px; */
 }
 .feature {
   align-self: flex-start;

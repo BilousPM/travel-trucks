@@ -21,6 +21,9 @@
   font-weight: 500;
   line-height: 24px; /* 150% */
   letter-spacing: -0.08px;
+  &:hover {
+    border-color: rgba(216, 67, 67, 1);
+  }
 }
 
 .listItem {

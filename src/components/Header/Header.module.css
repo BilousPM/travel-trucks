@@ -29,12 +29,11 @@
   padding: 24px 0;
 
   font-weight: 500;
-  color: #101828;
 
   transition: color 250ms;
-}
 
-.nav_link:hover,
-.nav_link:active {
-  color: #d84343;
+  &:hover,
+  &:focus {
+    color: var(--button-hover-color);
+  }
 }

@@ -1,44 +1,50 @@
+import { useState } from 'react';
 import LocationInput from '../LocationInput/LocationInput.jsx';
 import PrimaryButton from '../PrimaryButton/PrimaryButton.jsx';
 import VehicleEquipment from '../VehicleEquipment/VehicleEquipment.jsx';
-// import s from './Filters.module.css';
+import VehicleType from '../VehicleType/VehicleType.jsx';
 
 const Filters = ({ campers }) => {
-  // const id = useId();
+  const [formData, setFormData] = useState({
+    selectLocation: 'Kyiv, Ukraine',
+    vehicleEquipment: [],
+    vehicleType: '',
+  });
 
   const locations = campers.map(camper =>
     camper.location.replace(/(.*?),\s*(.*)/, '$2, $1'),
   );
   const cities = [...new Set(locations)];
-  // console.log(cities);
-  // console.log(locations);
 
-  // console.log(campers);
   const handleSubmit = e => {
     e.preventDefault();
-    const form = e.target;
-    console.log(form.elements.location.value);
-    form.reset();
+    console.log(formData);
+  };
+
+  const handleChangeInput = e => {
+    const { name, value } = e.target;
+
+    if (name === 'vehicleEquipment') {
+      setFormData({
+        ...formData,
+        vehicleEquipment: formData.vehicleEquipment.push(value),
+      });
+    }
+    setFormData({ ...formData, [name]: value });
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <LocationInput cities={cities} />
-      <VehicleEquipment />
+      <LocationInput
+        cities={cities}
+        value={formData.selectLocation}
+        onChange={handleChangeInput}
+      />
+      <VehicleEquipment onChange={handleChangeInput} />
+      <VehicleType onChange={handleChangeInput} value={formData.vehicleType} />
       <PrimaryButton label="Search" />
     </form>
   );
 };
 
 export default Filters;
-
-// const Filters = ({ children }) => {
-//   return (
-//     <div className={css.filterWrapper}>
-//       <p className={css.filter}>Filters</p>
-//       {children}
-//     </div>
-//   );
-// };locstion
-
-// export default Filters;

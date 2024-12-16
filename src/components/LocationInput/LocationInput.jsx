@@ -1,21 +1,23 @@
-import { useId } from 'react';
 import s from './LocationInput.module.css';
 
-const LocationInput = ({ cities }) => {
-  const selectId = useId();
-
+const LocationInput = ({ cities, value, onChange }) => {
   return (
     <div className={s.inputWrapper}>
-      <label htmlFor={selectId} className={s.label}>
-        location
+      <label>
+        <span className={s.label}>Location</span>
+        <select
+          value={value}
+          name="selectLocation"
+          className={s.input}
+          onChange={onChange}
+        >
+          {cities.map(city => (
+            <option key={city} value={city}>
+              {city}
+            </option>
+          ))}
+        </select>
       </label>
-      <select name="location" id={selectId} className={s.input}>
-        {cities.map(city => (
-          <option key={city} value={city}>
-            {city}
-          </option>
-        ))}
-      </select>
     </div>
   );
 };

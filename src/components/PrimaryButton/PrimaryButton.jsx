@@ -2,7 +2,7 @@ import css from './PrimaryButton.module.css';
 
 const PrimaryButton = ({ label = {} }) => {
   return (
-    <button type="button" className={css.button}>
+    <button type="submit" className={css.button}>
       {label}
     </button>
   );

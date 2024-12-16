@@ -1,11 +1,11 @@
 import Header from '../../components/Header/Header.jsx';
-import css from './Catalog.module.css';
-import PrimaryButton from '../../components/PrimaryButton/PrimaryButton';
+import s from './Catalog.module.css';
+// import PrimaryButton from '../../components/PrimaryButton/PrimaryButton';
 import CamperCard from '../../components/CamperCard/CamperCard';
-import LocationForm from '../../components/LocationForm/LocationForm.jsx';
+// import LocationForm from '../../components/LocationForm/LocationForm.jsx';
 import Filters from '../../components/Filters/Filters.jsx';
-import VehicleEquipment from '../../components/VehicleEquipment/VehicleEquipment.jsx';
-import VehicleType from '../../components/VehicleType/VehicleType.jsx';
+// import VehicleEquipment from '../../components/VehicleEquipment/VehicleEquipment.jsx';
+// import VehicleType from '../../components/VehicleType/VehicleType.jsx';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -22,29 +22,29 @@ const Catalog = () => {
     fetchCampersList();
   }, []);
 
-  console.log(campers);
+  // console.log(campers);
 
   return (
     <>
       <Header />
-      <section className={css.catalog}>
-        <div>
+      <section className={s.catalog}>
+        <div className={s.formWrapper}>
           {/* <LocationForm /> */}
-          <Filters>
-            <VehicleEquipment />
+          <Filters campers={campers} />
+          {/* <VehicleEquipment />
             <VehicleType />
           </Filters>
-          <PrimaryButton label="Search" />
+          <PrimaryButton label="Search" /> */}
         </div>
         <div>
           <ul>
             {campers.map((camper, index) => (
-              <li key={index} className={css.listItem}>
+              <li key={index} className={s.listItem}>
                 <CamperCard camper={camper} />
               </li>
             ))}
           </ul>
-          <button type="button" className={css.loadMore}>
+          <button type="button" className={s.loadMore}>
             Load more
           </button>
         </div>

@@ -8,6 +8,11 @@ const Filters = ({ campers }) => {
   const [formData, setFormData] = useState({
     selectLocation: 'Kyiv, Ukraine',
     vehicleEquipment: [],
+    // AC: '',
+    // Automatic: '',
+    // Kitchen: '',
+    // TV: '',
+    // Bathroom: '',
     vehicleType: '',
   });
 
@@ -22,16 +27,27 @@ const Filters = ({ campers }) => {
   };
 
   const handleChangeInput = e => {
-    const { name, value } = e.target;
+    const { name, value, checked } = e.target;
+    if (name !== 'vehicleEquipment') {
+      setFormData({ ...formData, [name]: value });
+    }
 
     if (name === 'vehicleEquipment') {
-      setFormData({
-        ...formData,
-        vehicleEquipment: formData.vehicleEquipment.push(value),
-      });
+      setFormData(prevState => ({
+        ...prevState,
+        vehicleEquipment: checked
+          ? [...prevState.vehicleEquipment, value]
+          : prevState.vehicleEquipment.filter(item => item !== value),
+      }));
     }
-    setFormData({ ...formData, [name]: value });
   };
+
+  // if (name === value && checked) {
+  //   setFormData(prev => ({ ...prev, [name]: value }));
+  // }
+
+  // setFormData({ ...formData, [name]: value });
+  // };
 
   return (
     <form onSubmit={handleSubmit}>

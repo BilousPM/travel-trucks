@@ -1,0 +1,52 @@
+.wrapper {
+  margin-bottom: 32px;
+}
+
+.title {
+  margin-bottom: 24px;
+}
+
+.line {
+  width: 360px;
+  height: 1px;
+  background-color: #dadde1;
+  margin-bottom: 24px;
+}
+
+.list {
+  display: flex;
+  row-gap: 8px;
+  column-gap: 12px;
+  flex-wrap: wrap;
+}
+
+.item {
+  border-radius: 12px;
+  padding: 16px 0;
+  text-align: center;
+  width: 112px;
+  height: 96px;
+  border: 1px solid #dadde1;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.08px;
+}
+
+.input {
+  border-radius: 12px;
+
+  text-align: center;
+
+  /* appearance: none; */
+  &:checked .item {
+    border: 1px solid var(--button-hover-color);
+  }
+}
+
+.vehicleType {
+  /* background-color: teal;
+  margin-bottom: 40px; */
+}

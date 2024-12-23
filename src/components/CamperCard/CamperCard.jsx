@@ -1,6 +1,7 @@
-import PrimaryButton from '../PrimaryButton/PrimaryButton.jsx';
-import css from './CamperCard.module.css';
+import { NavLink } from 'react-router-dom';
 
+import css from './CamperCard.module.css';
+import s from '../PrimaryButton/PrimaryButton.module.css';
 const CamperCard = ({ camper }) => {
   // console.log(camper.gallery[0].original);
   return (
@@ -29,7 +30,9 @@ const CamperCard = ({ camper }) => {
           Embrace simplicity and freedom with the Mavericks panel truck...
         </p>
         {/* <FeaturesList /> */}
-        <PrimaryButton label="Show more" />
+        <NavLink to="/catalog:id" className={s.button}>
+          Show more
+        </NavLink>
       </div>
     </div>
   );

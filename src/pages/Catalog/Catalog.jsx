@@ -11,14 +11,23 @@ import axios from 'axios';
 
 const Catalog = () => {
   const [campers, setCampers] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchCampersList = async () => {
-      const response = await axios.get(
-        'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers',
-      );
-      setCampers(response.data.items);
+      try {
+        setLoading(true);
+        const response = await axios.get(
+          'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers',
+        );
+        setCampers(response.data.items);
+      } catch (e) {
+        console.log(e);
+      } finally {
+        setLoading(false);
+      }
     };
+
     fetchCampersList();
   }, []);
 
@@ -26,7 +35,6 @@ const Catalog = () => {
 
   return (
     <>
-      <Header />
       <section className={s.catalog}>
         <div className={s.formWrapper}>
           {/* <LocationForm /> */}

@@ -1,20 +1,5 @@
-.item {
-  width: 112px;
-  height: 96px;
-  border: 1px solid #dadde1;
-  border-radius: 12px;
-  padding: 16px 0;
-  text-align: center;
-
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 24px; /* 150% */
-  letter-spacing: -0.08px;
-
-  &:checked {
-    border: 1px solid var(--button-hover-color);
-  }
+.equipmentWrapper {
+  margin-bottom: 32px;
 }
 
 .title {
@@ -28,10 +13,35 @@
   margin-bottom: 24px;
 }
 
-.equipmentWrapper {
-  margin-bottom: 32px;
+.list {
+  display: flex;
+  row-gap: 8px;
+  column-gap: 12px;
+  flex-wrap: wrap;
+}
+
+.item {
+  border-radius: 12px;
+  padding: 16px 0;
+  text-align: center;
+  width: 112px;
+  height: 96px;
+  border: 1px solid #dadde1;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.08px;
 }
 
 .input {
-  appearance: none;
+  border-radius: 12px;
+
+  text-align: center;
+
+  /* appearance: none; */
+  &:checked .item {
+    border: 1px solid var(--button-hover-color);
+  }
 }

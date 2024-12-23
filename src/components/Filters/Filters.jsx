@@ -8,11 +8,6 @@ const Filters = ({ campers }) => {
   const [formData, setFormData] = useState({
     selectLocation: 'Kyiv, Ukraine',
     vehicleEquipment: [],
-    // AC: '',
-    // Automatic: '',
-    // Kitchen: '',
-    // TV: '',
-    // Bathroom: '',
     vehicleType: '',
   });
 
@@ -41,13 +36,6 @@ const Filters = ({ campers }) => {
       }));
     }
   };
-
-  // if (name === value && checked) {
-  //   setFormData(prev => ({ ...prev, [name]: value }));
-  // }
-
-  // setFormData({ ...formData, [name]: value });
-  // };
 
   return (
     <form onSubmit={handleSubmit}>

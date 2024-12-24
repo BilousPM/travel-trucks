@@ -1,11 +1,6 @@
-import Header from '../../components/Header/Header.jsx';
 import s from './Catalog.module.css';
-// import PrimaryButton from '../../components/PrimaryButton/PrimaryButton';
-import CamperCard from '../../components/CamperCard/CamperCard';
-// import LocationForm from '../../components/LocationForm/LocationForm.jsx';
+import CamperCardList from '../../components/CamperCardList/CamperCardList.jsx';
 import Filters from '../../components/Filters/Filters.jsx';
-// import VehicleEquipment from '../../components/VehicleEquipment/VehicleEquipment.jsx';
-// import VehicleType from '../../components/VehicleType/VehicleType.jsx';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -31,30 +26,26 @@ const Catalog = () => {
     fetchCampersList();
   }, []);
 
-  // console.log(campers);
-
   return (
     <>
       <section className={s.catalog}>
         <div className={s.formWrapper}>
-          {/* <LocationForm /> */}
           <Filters campers={campers} />
-          {/* <VehicleEquipment />
-            <VehicleType />
-          </Filters>
-          <PrimaryButton label="Search" /> */}
         </div>
         <div>
-          <ul>
-            {campers.map((camper, index) => (
-              <li key={index} className={s.listItem}>
-                <CamperCard camper={camper} />
-              </li>
-            ))}
-          </ul>
-          <button type="button" className={s.loadMore}>
-            Load more
-          </button>
+          {loading && <p>Loading data, please wait...</p>}
+          {campers.length > 0 ? (
+            <CamperCardList items={campers} />
+          ) : (
+            <p style={{ color: 'white' }}>
+              Something Went Wrong ! Try again...
+            </p>
+          )}
+          {campers.length > 0 && (
+            <button type="button" className={s.loadMore}>
+              Load more
+            </button>
+          )}
         </div>
       </section>
     </>

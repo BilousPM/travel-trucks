@@ -3,6 +3,13 @@ import CamperCardList from '../../components/CamperCardList/CamperCardList.jsx';
 import Filters from '../../components/Filters/Filters.jsx';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { PropagateLoader } from 'react-spinners';
+
+// const override: import('react').CSSProperties = {
+//   display: 'block',
+//   margin: '0 auto',
+//   borderColor: 'red',
+// };
 
 const Catalog = () => {
   const [campers, setCampers] = useState([]);
@@ -33,7 +40,16 @@ const Catalog = () => {
           <Filters campers={campers} />
         </div>
         <div>
-          {loading && <p>Loading data, please wait...</p>}
+          <PropagateLoader
+            color={'teal'}
+            loading={loading}
+            // cssOverride={override}
+            size={20}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+            display={'block'}
+            margin={'0 auto'}
+          />
           {campers.length > 0 ? (
             <CamperCardList items={campers} />
           ) : (

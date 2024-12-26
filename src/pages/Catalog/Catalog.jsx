@@ -2,8 +2,10 @@ import s from './Catalog.module.css';
 import CamperCardList from '../../components/CamperCardList/CamperCardList.jsx';
 import Filters from '../../components/Filters/Filters.jsx';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+
 import { PropagateLoader } from 'react-spinners';
+
+import { getCampers } from '../../config/campersApi.js';
 
 // const override: import('react').CSSProperties = {
 //   display: 'block',
@@ -19,10 +21,8 @@ const Catalog = () => {
     const fetchCampersList = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(
-          'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers',
-        );
-        setCampers(response.data.items);
+        const data = await getCampers();
+        setCampers(data);
       } catch (e) {
         console.log(e);
       } finally {

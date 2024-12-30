@@ -7,15 +7,9 @@ import { PropagateLoader } from 'react-spinners';
 
 import { getCampers } from '../../config/campersApi.js';
 
-// const override: import('react').CSSProperties = {
-//   display: 'block',
-//   margin: '0 auto',
-//   borderColor: 'red',
-// };
-
 const Catalog = () => {
   const [campers, setCampers] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchCampersList = async () => {
@@ -39,17 +33,15 @@ const Catalog = () => {
         <div className={s.formWrapper}>
           <Filters campers={campers} />
         </div>
-        <div>
+        <div className={s.cardsWrapper}>
           <PropagateLoader
-            color={'teal'}
+            color={'darkRed'}
             loading={loading}
-            // cssOverride={override}
             size={20}
             aria-label="Loading Spinner"
-            data-testid="loader"
-            display={'block'}
-            margin={'0 auto'}
+            margin="0 auto"
           />
+
           {campers.length > 0 ? (
             <CamperCardList items={campers} />
           ) : (

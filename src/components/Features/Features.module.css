@@ -1,9 +1,9 @@
-.featuresWrapper {
+/* .featuresWrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  /* height: 104px; */
-}
+  gap: 8px; */
+/* height: 104px; */
+/* }
 .feature {
   align-self: flex-start;
   padding: 12px 18px;
@@ -17,4 +17,4 @@
 
   font-weight: 500;
   line-height: 24px;
-}
+} */

@@ -10,7 +10,7 @@ const CamperCardList = ({ items }) => {
         <li key={index} className={s.card}>
           <div className={s.imgWrapper}>
             <img
-              src={camper.gallery[0].original}
+              src={camper.gallery[0].thumb}
               alt="Vehicle"
               width={292}
               height={320}
@@ -31,7 +31,7 @@ const CamperCardList = ({ items }) => {
               Embrace simplicity and freedom with the Mavericks panel truck...
             </p>
 
-            <NavLink to="/catalog:id" className={css.button}>
+            <NavLink to={camper.id.toString()} className={css.button}>
               Show more
             </NavLink>
           </div>

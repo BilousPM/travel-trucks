@@ -37,3 +37,7 @@
     color: var(--button-hover-color);
   }
 }
+
+.active {
+  color: var(--button-hover-color);
+}

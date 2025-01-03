@@ -1,11 +1,13 @@
 :root {
   --main-text-color: #101828;
   --button-hover-color: #d84343;
+  --main-background-color: #ffffff;
+  --secondary-background-color: #f7f7f7;
 }
 body {
   font-family: 'Inter', sans-serif;
   color: var(--main-text-color);
-  background-color: lightgray;
+  background-color: var(--main-background-color);
   line-height: 1.5;
 }
 

@@ -33,13 +33,15 @@ const CamperPage = () => {
             <p className={s.price}>€{camper.price}</p>
           </div>
           <div className={s.reviewsWrapper}>
-            <p>4.4(2 Reviews)</p>
-            <p>Kyiv, Ukraine</p>
+            <p>
+              {camper.rating}({camper.reviews.length} Reviews)
+            </p>
+            <p>{camper.location.split(', ').reverse().join(', ')}</p>
           </div>
         </div>
-        <ul>
+        <ul className={s.list}>
           {camper.gallery.map((item, index) => (
-            <li key={index}>
+            <li key={index} className={s.imgWrapper}>
               <img src={item.original} alt="Vehicle" width={292} height={312} />
             </li>
           ))}

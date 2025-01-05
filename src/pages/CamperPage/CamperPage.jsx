@@ -1,7 +1,8 @@
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
 import s from './CamperPage.module.css';
 import { useEffect, useState } from 'react';
 import { getCamperById } from '../../config/campersApi.js';
+import BookForm from '../../components/BookForm/BookForm.jsx';
 
 const CamperPage = () => {
   const [camper, setCamper] = useState(null);
@@ -47,9 +48,14 @@ const CamperPage = () => {
           ))}
         </ul>
         <p>{camper.description}</p>
-        <NavLink to="">Features</NavLink>
-        <NavLink to="">Reviews</NavLink>
+
+        <NavLink to="features">Features</NavLink>
+        <NavLink to="reviews">Reviews</NavLink>
         <div></div>
+        <div className={s.featuresWrapper}>
+          <Outlet />
+          <BookForm />
+        </div>
       </div>
     </section>
   );

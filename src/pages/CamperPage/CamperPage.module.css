@@ -28,3 +28,8 @@
   gap: 16px;
   line-height: 24px;
 }
+
+.featuresWrapper {
+  display: flex;
+  gap: 40px;
+}

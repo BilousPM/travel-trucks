@@ -2,10 +2,10 @@ import s from './Features.module.css';
 
 const Features = () => {
   return (
-    <div>
+    <div className={s.featuresWrapper}>
       <ul>
         <li>
-          <svg className={s} width="" height="">
+          <svg className={s} width="20" height="20">
             <use href=""></use>
             <p></p>
           </svg>

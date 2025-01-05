@@ -1,0 +1,7 @@
+.formWrapper {
+  border-radius: 10px;
+  border: 1px solid var(--gray-light);
+  max-width: 641px;
+  width: 100%;
+  padding: 44px;
+}

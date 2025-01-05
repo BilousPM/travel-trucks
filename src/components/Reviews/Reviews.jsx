@@ -1,14 +1,16 @@
+import s from './Reviews.module.css';
+
 const Reviews = () => {
   return (
-    <div>
+    <div className={s.reviewWrapper}>
       <ul>
-        <il>
+        <li>
           <div>
             <p></p>
           </div>
           <h2>Name</h2>
           <span>*</span>
-        </il>
+        </li>
       </ul>
       <p></p>
     </div>

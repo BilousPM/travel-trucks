@@ -4,7 +4,7 @@ import PrimaryButton from '../PrimaryButton/PrimaryButton.jsx';
 import VehicleEquipment from '../VehicleEquipment/VehicleEquipment.jsx';
 import VehicleType from '../VehicleType/VehicleType.jsx';
 
-const Filters = ({ campers }) => {
+const Filters = ({ campers, handleSSubmit }) => {
   const [formData, setFormData] = useState({
     selectLocation: 'Kyiv, Ukraine',
     vehicleEquipment: [],
@@ -18,6 +18,7 @@ const Filters = ({ campers }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    handleSSubmit(formData);
     console.log(formData);
   };
 

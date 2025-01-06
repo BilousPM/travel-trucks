@@ -10,12 +10,17 @@ import { getCampers } from '../../config/campersApi.js';
 const Catalog = () => {
   const [campers, setCampers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [filteredData, setFiltered] = useState({});
+
+  const handleSubmit = data => {
+    setFiltered(data);
+  };
 
   useEffect(() => {
     const fetchCampersList = async () => {
       try {
         setLoading(true);
-        const data = await getCampers();
+        const data = await getCampers(filteredData);
         setCampers(data);
       } catch (e) {
         console.log(e);
@@ -25,13 +30,13 @@ const Catalog = () => {
     };
 
     fetchCampersList();
-  }, []);
+  }, [filteredData]);
 
   return (
     <>
       <section className={s.catalog}>
         <div className={s.formWrapper}>
-          <Filters campers={campers} />
+          <Filters campers={campers} handleSSubmit={handleSubmit} />
         </div>
         <div className={s.cardsWrapper}>
           <PropagateLoader

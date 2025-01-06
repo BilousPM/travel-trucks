@@ -4,6 +4,7 @@
   --main-background-color: #ffffff;
   --secondary-background-color: #f7f7f7;
   --gray-light: #dadde1;
+  --accent-button-color: #e44848;
 }
 body {
   font-family: 'Inter', sans-serif;
@@ -50,4 +51,8 @@ img {
 
 .container {
   padding: 0 64px;
+}
+
+.active {
+  color: var(--button-hover-color);
 }

@@ -19,7 +19,7 @@
   font-size: 48px;
   font-weight: 600;
   line-height: 32px;
-  letter-spacing: 1.6px;
+  letter-spacing: 1.597px;
 }
 
 .subTitle {
@@ -39,7 +39,7 @@
   border-radius: 200px;
 
   color: #f7f7f7;
-  background-color: #e44848;
+  background-color: var(--accent-button-color);
 
   font-family: Inter;
   font-size: 16px;
@@ -49,9 +49,8 @@
   text-align: center;
   letter-spacing: -0.08px;
   transition: background-color 250ms, color 250ms;
-}
 
-.button:hover {
-  background-color: #d84343;
-  color: #f7f7f7;
+  &:hover {
+    background-color: var(--button-hover-color);
+  }
 }

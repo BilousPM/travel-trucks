@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import s from './Home.module.css';
+
 const Home = () => {
   return (
     <section className={s.hero}>

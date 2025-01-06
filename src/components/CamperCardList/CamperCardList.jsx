@@ -20,16 +20,16 @@ const CamperCardList = ({ items }) => {
             <div>
               <div className={s.headerWrapper}>
                 <h2 className={s.name}>{camper.name}</h2>
-                <p className={s.price}>€{camper.price}</p>
+                <p className={s.price}>€{camper.price.toFixed(2)}</p>
               </div>
               <div className={s.reviewsWrapper}>
-                <p>4.4(2 Reviews)</p>
-                <p>Kyiv, Ukraine</p>
+                <p>
+                  {camper.rating}({camper.reviews.length} Reviews)
+                </p>
+                <p>{camper.location.replace(/(.*?),\s*(.*)/, '$2, $1')}</p>
               </div>
             </div>
-            <p className={s.text}>
-              Embrace simplicity and freedom with the Mavericks panel truck...
-            </p>
+            <p className={s.text}>{camper.description}</p>
 
             <NavLink to={camper.id.toString()} className={css.button}>
               Show more

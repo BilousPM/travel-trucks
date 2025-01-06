@@ -5,11 +5,14 @@ const camperApi = axios.create({
 });
 
 export const getCampers = async (query, page = 1, limit = 15) => {
+  console.log(query);
   const response = await camperApi.get('campers', {
     params: {
       page,
       limit,
-      // location: 'Ukraine, Odesa',
+      // search: 'kitchen',
+
+      // location: query.selectLocation,
     },
   });
 

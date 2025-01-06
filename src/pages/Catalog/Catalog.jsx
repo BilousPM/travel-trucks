@@ -10,18 +10,14 @@ import { getCampers } from '../../config/campersApi.js';
 const Catalog = () => {
   const [campers, setCampers] = useState([]);
   const [loading, setLoading] = useState(true);
-  // const [filteredData, setFilteredData] = useState({});
-
-  // const handleSubmit = data => {
-  //   setFilteredData(data);
-  //   console.log(filteredData);
-  // };
+  const [query, setQuery] = useState({});
 
   useEffect(() => {
-    const fetchCampersList = async () => {
+    const fetchCampersList = async query => {
       try {
         setLoading(true);
-        const data = await getCampers();
+        console.log(query);
+        const data = await getCampers(query);
         setCampers(data);
       } catch (e) {
         console.log(e);
@@ -30,14 +26,16 @@ const Catalog = () => {
       }
     };
 
-    fetchCampersList();
-  }, []);
+    fetchCampersList(query);
+  }, [query]);
+
+  // console.log(query);
 
   return (
     <>
       <section className={s.catalog}>
         <div className={s.formWrapper}>
-          <Filters campers={campers} />
+          <Filters campers={campers} handleQuery={setQuery} />
         </div>
         <div className={s.cardsWrapper}>
           <PropagateLoader

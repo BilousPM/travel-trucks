@@ -11,14 +11,15 @@ const Catalog = () => {
   const [campers, setCampers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState({});
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchCampersList = async query => {
       try {
         setLoading(true);
         console.log(query);
-        const data = await getCampers(query);
-        setCampers(data);
+        const data = await getCampers(query, page);
+        setCampers(prev => [...prev, ...data]);
       } catch (e) {
         console.log(e);
       } finally {
@@ -27,7 +28,7 @@ const Catalog = () => {
     };
 
     fetchCampersList(query);
-  }, [query]);
+  }, [query, page]);
 
   // console.log(query);
 
@@ -54,7 +55,13 @@ const Catalog = () => {
             </p>
           )}
           {campers.length > 0 && (
-            <button type="button" className={s.loadMore}>
+            <button
+              type="button"
+              onClick={() => {
+                setPage(pref => pref + 1);
+              }}
+              className={s.loadMore}
+            >
               Load more
             </button>
           )}

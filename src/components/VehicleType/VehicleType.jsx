@@ -21,7 +21,7 @@ const VehicleType = ({ onChange, value }) => {
               />
               <span>Van</span>
             </label>
-          </li>{' '}
+          </li>
           <li className={s.item}>
             <label>
               <input

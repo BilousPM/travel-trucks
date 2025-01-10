@@ -31,7 +31,12 @@ const CamperCardList = ({ items }) => {
             </div>
             <p className={s.text}>{camper.description}</p>
 
-            <NavLink to={camper.id.toString()} className={css.button}>
+            <NavLink
+              to={camper.id.toString()}
+              className={css.button}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Show more
             </NavLink>
           </div>

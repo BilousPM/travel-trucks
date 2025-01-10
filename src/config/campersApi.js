@@ -5,7 +5,7 @@ const camperApi = axios.create({
 });
 
 export const getCampers = async (query, page = 1, limit = 3) => {
-  console.log(query);
+  // console.log(query);
   const response = await camperApi.get('campers', {
     params: {
       page,

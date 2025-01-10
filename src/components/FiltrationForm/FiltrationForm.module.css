@@ -15,3 +15,40 @@
   row-gap: 8px;
   column-gap: 12px;
 }
+
+/* ----------- */
+.wrapper {
+  position: relative;
+  width: 300px;
+}
+
+.locationInput {
+  width: 250px;
+  padding: 8px 48px;
+  border: 1px solid salmon;
+  border-radius: 4px;
+}
+
+.listOfTips {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  list-style: none;
+  padding: 8px 8px;
+  /* margin: '0'; */
+  z-index: '1000';
+  /* max-height: 150px; */
+  overflow-y: auto;
+  width: 250px;
+}
+
+.tipItem {
+  padding: 8px 12px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+}

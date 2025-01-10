@@ -1,13 +1,13 @@
 import s from './Catalog.module.css';
-import CamperCardList from '../../components/CamperCardList/CamperCardList.jsx';
-import Filters from '../../components/Filters/Filters.jsx';
+// import CamperCardList from '../../components/CamperCardList/CamperCardList.jsx';
+// import Filters from '../../components/Filters/Filters.jsx';
 import { useEffect, useState } from 'react';
 
-import { PropagateLoader } from 'react-spinners';
+// import { PropagateLoader } from 'react-spinners';
 
 import { getCampers } from '../../config/campersApi.js';
 import FiltrationForm from '../../components/FiltrationForm/FiltrationForm.jsx';
-import AutoCompleteInput from '../../components/LocationInput/LocationInput.jsx';
+// import AutoCompleteInput from '../../components/LocationInput/LocationInput.jsx';
 
 const suggestions = [
   'Kyiv',

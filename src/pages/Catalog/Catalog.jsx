@@ -42,18 +42,18 @@ const Catalog = () => {
     fetchCampersList(selectedValue);
   }, [page, selectedValue]);
 
-  // console.log(query);
-
   return (
     <section className={s.section}>
       <div className="container">
         <div className={s.sectionWrapper}>
-          <FiltrationForm
-            suggestions={suggestions}
-            handleQuery={setSelectedValue}
-            setCampers={setCampers}
-            setPage={setPage}
-          />
+          <div className={s.formWrapper}>
+            <FiltrationForm
+              suggestions={suggestions}
+              handleQuery={setSelectedValue}
+              setCampers={setCampers}
+              setPage={setPage}
+            />
+          </div>
 
           <div className={s.cardsWrapper}>
             {campers.length > 0 ? (

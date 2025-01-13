@@ -1,12 +1,42 @@
-.formWrapper {
-  /* max-width: 360px; */
+.locationInput {
   width: 360px;
+  padding: 18px 20px 18px 48px;
+  border-radius: 12px;
+  background-color: #f7f7f7;
+  border: none;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 1.2px;
+  margin-bottom: 40px;
+  appearance: none;
+  outline: none;
+}
+.label {
+  display: inline-block;
+  color: #6c717b;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 8px;
 }
 
-.item {
-  width: 112px;
-  height: 96px;
-  border: 1px solid var(--gray-light);
+.labelFilter {
+  margin-bottom: 32px;
+}
+
+.itemGroupLabel {
+  margin-bottom: 24px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.line {
+  width: 360px;
+  height: 1px;
+  background-color: #dadde1;
+  margin-bottom: 24px;
 }
 
 .itemWrapper {
@@ -14,41 +44,53 @@
   flex-wrap: wrap;
   row-gap: 8px;
   column-gap: 12px;
+  margin-bottom: 32px;
+}
+
+.itemWrapperVehicleType {
+  margin-bottom: 40px;
+}
+
+.item {
+  border-radius: 12px;
+  padding: 16px 0;
+  text-align: center;
+  width: 112px;
+  height: 96px;
+  border: 1px solid #dadde1;
 }
 
 /* ----------- */
 .wrapper {
   position: relative;
-  width: 300px;
-}
-
-.locationInput {
-  width: 250px;
-  padding: 8px 48px;
-  border: 1px solid salmon;
-  border-radius: 4px;
+  width: 100%;
+  margin-bottom: 40px;
 }
 
 .listOfTips {
+  /* display: flex;
+  row-gap: 8px;
+  column-gap: 12px;
+  flex-wrap: wrap; */
+
   position: absolute;
-  top: 100%;
+  top: 150%;
   left: 0;
   right: 0;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  background-color: #f7f7f7;
+  border-bottom-left-radius: 4px;
+  border-top: none;
   list-style: none;
   padding: 8px 8px;
-  /* margin: '0'; */
+  margin: '0';
   z-index: '1000';
-  /* max-height: 150px; */
   overflow-y: auto;
-  width: 250px;
+  width: 100%;
 }
 
 .tipItem {
   padding: 8px 12px;
   cursor: pointer;
   background-color: #f9f9f9;
-  border-bottom: 1px solid #ddd;
+  box-shadow: 2px 2px 4px 3px #dadde1;
 }

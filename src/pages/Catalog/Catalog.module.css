@@ -7,14 +7,14 @@
   display: flex;
   gap: 64px;
 }
-/* ------------------------------------------ */
-.catalog {
-  background-color: #fff;
-  display: flex;
-  gap: 64px;
-  padding: 48px 64px 52px 64px;
-  max-width: 1440px;
-  margin: 0 auto;
+
+.formWrapper {
+  max-width: 360px;
+  /* width: 360px; */
+}
+
+.cardsWrapper {
+  max-width: 888px;
 }
 
 .loadMore {
@@ -35,9 +35,16 @@
     border-color: rgba(216, 67, 67, 1);
   }
 }
-.formWrapper {
-  width: 360px;
-}
+
+/* 
+.catalog {
+  background-color: #fff;
+  display: flex;
+  gap: 64px;
+  padding: 48px 64px 52px 64px;
+  max-width: 1440px;
+  margin: 0 auto;
+} */
 
 /* .cardsWrapper {
   background-color: yellow;

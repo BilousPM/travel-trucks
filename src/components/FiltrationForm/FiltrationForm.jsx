@@ -5,8 +5,8 @@ import PrimaryButton from '../PrimaryButton/PrimaryButton.jsx';
 import s from './FiltrationForm.module.css';
 import { Field, Form, Formik } from 'formik';
 
-const FiltrationForm = ({ suggestions }) => {
-  const [inputValue, setInputValue] = useState('');
+const FiltrationForm = ({ setCampers, suggestions, handleQuery, setPage }) => {
+  // const [selectedValue, setSelectedValue] = useState('');
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
   const [isSuggestionsVisible, setSuggestionsVisible] = useState(false);
 
@@ -21,32 +21,43 @@ const FiltrationForm = ({ suggestions }) => {
   };
 
   const handleSubmit = (data, actions) => {
-    console.log(data);
+    // setSelectedValue(data);
+    const filteredData = Object.fromEntries(
+      Object.entries(data).filter(
+        ([key, value]) => value === true || typeof value === 'string',
+      ),
+    );
+    // console.log(filteredData);
+    handleQuery([]);
+    setCampers([]);
+    setPage(1);
+    handleQuery(filteredData);
     actions.resetForm();
   };
 
   const handleInputChange = (e, setFieldValue) => {
     const value = e.target.value;
-    setInputValue(value);
+    // setInputValue(value);
     setFieldValue('location', value);
     console.log(value);
 
-    // if (value.trim() !== '') {
-    //   const filtered = suggestions.filter(suggestion =>
-    //     suggestion.toLowerCase().includes(value.toLowerCase()),
-    //   );
-    //   setFilteredSuggestions(filtered);
-    //   setSuggestionsVisible(true);
-    // } else {
-    //   setFilteredSuggestions([]);
-    //   setSuggestionsVisible(false);
-    // }
+    if (value.trim() !== '') {
+      const filtered = suggestions.filter(suggestion =>
+        suggestion.toLowerCase().includes(value.toLowerCase()),
+      );
+      setFilteredSuggestions(filtered);
+      setSuggestionsVisible(true);
+    } else {
+      setFilteredSuggestions([]);
+      setSuggestionsVisible(false);
+    }
   };
 
-  // const handleSuggestionClick = suggestion => {
-  //   setInputValue(suggestion);
-  //   setSuggestionsVisible(false);
-  // };
+  const handleSuggestionClick = (e, setFieldValue, suggestion) => {
+    setFieldValue('location', suggestion);
+    // setInputValue(suggestion);
+    setSuggestionsVisible(false);
+  };
 
   return (
     <div className={s.formWrapper}>
@@ -54,7 +65,6 @@ const FiltrationForm = ({ suggestions }) => {
         {({ setFieldValue, values }) => (
           <Form>
             <h2>Location</h2>
-            {/* <AutoCompleteInput suggestions={suggestions} /> */}
             <label className={s.wrapper}>
               <Field
                 name="location"
@@ -62,22 +72,29 @@ const FiltrationForm = ({ suggestions }) => {
                 type="text"
                 value={values.location}
                 onChange={e => handleInputChange(e, setFieldValue)}
-                // onBlur={() => setTimeout(() => setSuggestionsVisible(false), 200)}
-                // onFocus={() => inputValue && setSuggestionsVisible(true)}
+                autoComplete="off"
               />
-              {/* {isSuggestionsVisible && filteredSuggestions.length > 0 && (
-              <ul className={s.listOfTips}>
-                {filteredSuggestions.map((suggestion, index) => (
-                  <li
-                    key={index}
-                    onClick={() => handleSuggestionClick(suggestion)}
-                    className={s.tipItem}
-                  >
-                    {suggestion}
-                  </li>
-                ))}
-              </ul>
-            )} */}
+              {isSuggestionsVisible && filteredSuggestions.length > 0 && (
+                <ul className={s.listOfTips}>
+                  {filteredSuggestions.map((suggestion, index) => (
+                    <li
+                      key={index}
+                      onClick={e =>
+                        handleSuggestionClick(e, setFieldValue, suggestion)
+                      }
+                      onMouseOver={e =>
+                        (e.target.style.backgroundColor = '#e6e6e6')
+                      }
+                      onMouseOut={e =>
+                        (e.target.style.backgroundColor = '#f9f9f9')
+                      }
+                      className={s.tipItem}
+                    >
+                      {suggestion}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </label>
             <h2>Filters</h2>
 

@@ -1,5 +1,5 @@
 import s from './Catalog.module.css';
-// import CamperCardList from '../../components/CamperCardList/CamperCardList.jsx';
+import CamperCardList from '../../components/CamperCardList/CamperCardList.jsx';
 // import Filters from '../../components/Filters/Filters.jsx';
 import { useEffect, useState } from 'react';
 
@@ -20,16 +20,16 @@ const suggestions = [
 ];
 
 const Catalog = () => {
+  const [selectedValue, setSelectedValue] = useState('');
   const [campers, setCampers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [query, setQuery] = useState({});
   const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchCampersList = async query => {
       try {
         setLoading(true);
-        // console.log(query);
+
         const data = await getCampers(query, page);
         setCampers(prev => [...prev, ...data]);
       } catch (e) {
@@ -39,8 +39,8 @@ const Catalog = () => {
       }
     };
 
-    fetchCampersList(query);
-  }, [query, page]);
+    fetchCampersList(selectedValue);
+  }, [page, selectedValue]);
 
   // console.log(query);
 
@@ -48,9 +48,14 @@ const Catalog = () => {
     <section className={s.section}>
       <div className="container">
         <div className={s.sectionWrapper}>
-          <FiltrationForm suggestions={suggestions} />
+          <FiltrationForm
+            suggestions={suggestions}
+            handleQuery={setSelectedValue}
+            setCampers={setCampers}
+            setPage={setPage}
+          />
 
-          {/* <div className={s.cardsWrapper}>
+          <div className={s.cardsWrapper}>
             {campers.length > 0 ? (
               <CamperCardList items={campers} />
             ) : (
@@ -69,7 +74,7 @@ const Catalog = () => {
                 Load more
               </button>
             )}
-          </div> */}
+          </div>
         </div>
       </div>
     </section>

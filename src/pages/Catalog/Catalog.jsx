@@ -7,6 +7,9 @@ import { useEffect, useState } from 'react';
 
 import { getCampers } from '../../config/campersApi.js';
 import FiltrationForm from '../../components/FiltrationForm/FiltrationForm.jsx';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCampers } from '../../redux/camper/selectors.js';
+import { setCampers } from '../../redux/camper/actions.js';
 // import AutoCompleteInput from '../../components/LocationInput/LocationInput.jsx';
 
 const suggestions = [
@@ -21,9 +24,15 @@ const suggestions = [
 
 const Catalog = () => {
   const [selectedValue, setSelectedValue] = useState('');
-  const [campers, setCampers] = useState([]);
+  // const [campers, setCampers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
+
+  // Redux
+
+  const campers = useSelector(selectCampers);
+  const dispatch = useDispatch();
+  // =---------
 
   useEffect(() => {
     const fetchCampersList = async query => {
@@ -31,7 +40,9 @@ const Catalog = () => {
         setLoading(true);
 
         const data = await getCampers(query, page);
-        setCampers(prev => [...prev, ...data]);
+
+        // setCampers(prev => [...prev, ...data]);
+        dispatch(setCampers);
       } catch (e) {
         console.log(e);
       } finally {
@@ -40,7 +51,7 @@ const Catalog = () => {
     };
 
     fetchCampersList(selectedValue);
-  }, [page, selectedValue]);
+  }, [page, selectedValue, dispatch]);
 
   return (
     <section className={s.section}>
@@ -50,7 +61,7 @@ const Catalog = () => {
             <FiltrationForm
               suggestions={suggestions}
               handleQuery={setSelectedValue}
-              setCampers={setCampers}
+              // setCampers={setCampers}
               setPage={setPage}
             />
           </div>

@@ -1,5 +1,6 @@
-import { addCampers } from './constants.js';
+import { configureStore } from '@reduxjs/toolkit';
+import { camperReducer } from './reducer.js';
 
-export const setCampers = () => {
-  return { type: addCampers };
-};
+export const store = configureStore({
+  reducer: camperReducer,
+});

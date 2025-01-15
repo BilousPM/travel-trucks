@@ -1,5 +1,4 @@
 import s from './Catalog.module.css';
-import CamperCardList from '../../components/CamperCardList/CamperCardList.jsx';
 // import Filters from '../../components/Filters/Filters.jsx';
 import { useEffect, useState } from 'react';
 
@@ -7,9 +6,8 @@ import { useEffect, useState } from 'react';
 
 import { getCampers } from '../../config/campersApi.js';
 import FiltrationForm from '../../components/FiltrationForm/FiltrationForm.jsx';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectCampers } from '../../redux/camper/selectors.js';
-import { setCampers } from '../../redux/camper/actions.js';
+import { useSelector } from 'react-redux';
+
 // import AutoCompleteInput from '../../components/LocationInput/LocationInput.jsx';
 
 const suggestions = [
@@ -29,9 +27,8 @@ const Catalog = () => {
   const [page, setPage] = useState(1);
 
   // Redux
-
-  const campers = useSelector(selectCampers);
-  const dispatch = useDispatch();
+  const campers = useSelector(store => store.campers);
+  console.log(campers);
   // =---------
 
   useEffect(() => {
@@ -40,9 +37,8 @@ const Catalog = () => {
         setLoading(true);
 
         const data = await getCampers(query, page);
-
+        console.log(data);
         // setCampers(prev => [...prev, ...data]);
-        dispatch(setCampers);
       } catch (e) {
         console.log(e);
       } finally {
@@ -51,7 +47,7 @@ const Catalog = () => {
     };
 
     fetchCampersList(selectedValue);
-  }, [page, selectedValue, dispatch]);
+  }, [page, selectedValue]);
 
   return (
     <section className={s.section}>
@@ -66,7 +62,7 @@ const Catalog = () => {
             />
           </div>
 
-          <div className={s.cardsWrapper}>
+          {/* <div className={s.cardsWrapper}>
             {campers.length > 0 ? (
               <CamperCardList items={campers} />
             ) : (
@@ -85,7 +81,7 @@ const Catalog = () => {
                 Load more
               </button>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

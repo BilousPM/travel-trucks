@@ -1,13 +1,12 @@
 import { addCampers } from './constants.js';
 
-const inialState = {
-  campers: [],
+const initialState = {
+  campers: [1, 2, 3, 4, 5],
+  step: 1,
 };
 
-export const camperReducer = (state = inialState, action) => {
+export const camperReducer = (state = initialState, action) => {
   switch (action.type) {
-    case addCampers:
-      return { ...state, campers: state.campers };
     default:
       return state;
   }

@@ -3,6 +3,6 @@ import { camperReducer } from './camper/reducer.js';
 
 export const store = configureStore({
   reducer: {
-    campers: camperReducer,
+    camp: camperReducer,
   },
 });

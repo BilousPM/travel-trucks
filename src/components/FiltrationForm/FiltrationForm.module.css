@@ -94,3 +94,10 @@
   background-color: #f9f9f9;
   box-shadow: 2px 2px 4px 3px #dadde1;
 }
+
+.icon {
+  stroke: black;
+  width: 32px;
+  height: 32px;
+  fill: aqua;
+}

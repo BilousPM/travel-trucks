@@ -35,7 +35,6 @@ const Catalog = () => {
     const fetchCampersList = async query => {
       try {
         setLoading(true);
-
         const data = await getCampers(query, page);
         setCampers(prev => [...prev, ...data]);
       } catch (e) {

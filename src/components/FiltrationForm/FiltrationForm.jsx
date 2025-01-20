@@ -91,7 +91,6 @@ const FiltrationForm = ({ setCampers, suggestions, handleQuery, setPage }) => {
             )}
           </label>
           <h2 className={clsx(s.label, s.labelFilter)}>Filters</h2>
-
           <h3 className={s.itemGroupLabel}>Vehicle equipment</h3>
           <div className={s.line}></div>
           <div className={s.itemWrapper}>
@@ -103,53 +102,72 @@ const FiltrationForm = ({ setCampers, suggestions, handleQuery, setPage }) => {
             </label>
             <label>
               <div className={s.item}>
+                <svg className={s.icon}>
+                  <use href="../../images/symbol-defs.svg#icon-wind"></use>
+                </svg>
                 <span>Automatic</span>
                 <Field name="transmission" type="checkbox" />
               </div>
             </label>
             <label>
               <div className={s.item}>
+                <svg className={s.icon} width={32} height={32}>
+                  <use href="../../images/symbol-defs.svg#icon-kitchen"></use>
+                </svg>
                 <span>Kitchen</span>
                 <Field name="kitchen" type="checkbox" />
               </div>
             </label>
             <label>
               <div className={s.item}>
+                <svg className={s.icon} width={32} height={32}>
+                  <use href="../../images/symbol-defs.svg#icon-"></use>
+                </svg>
                 <span>TV</span>
                 <Field name="TV" type="checkbox" />
               </div>
             </label>
             <label>
               <div className={s.item}>
+                <svg className={s.icon} width={32} height={32}>
+                  <use href="../../images/symbol-defs.svg#icon-"></use>
+                </svg>
                 <span>Bathroom</span>
                 <Field name="bathroom" type="checkbox" />
               </div>
             </label>
           </div>
-
           <h3 className={s.itemGroupLabel}>Vehicle type</h3>
           <div className={s.line}></div>
           <div className={clsx(s.itemWrapper, s.itemWrapperVehicleType)}>
             <label>
               <div className={s.item}>
+                <svg className={s.icon} width={32} height={32}>
+                  <use href="../../images/symbol-defs.svg#icon-"></use>
+                </svg>
                 <span>Van</span>
                 <Field name="form" type="radio" value="panelTruck" />
               </div>
             </label>
             <label>
               <div className={s.item}>
+                <svg className={s.icon} width={32} height={32}>
+                  <use href="../../images/symbol-defs.svg#icon-"></use>
+                </svg>
                 <span>Fully Integrated</span>
                 <Field name="form" type="radio" value="fullyIntegrated" />
               </div>
             </label>
             <label>
               <div className={s.item}>
+                <svg className={s.icon} width={32} height={32}>
+                  <use href="../../images/symbol-defs.svg#icon-"></use>
+                </svg>
                 <span>Alcove</span>
                 <Field name="form" type="radio" value="alcove" />
               </div>
             </label>
           </div>
-
           <PrimaryButton label="Search" />
         </Form>
       )}

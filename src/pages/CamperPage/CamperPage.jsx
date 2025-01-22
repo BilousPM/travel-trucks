@@ -3,23 +3,33 @@ import s from './CamperPage.module.css';
 import { useEffect, useState } from 'react';
 import { getCamperById } from '../../config/campersApi.js';
 import BookForm from '../../components/BookForm/BookForm.jsx';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCamperByIdThunk } from '../../redux/campers/operations.js';
+import { selectCamperById } from '../../redux/campers/selectors.js';
 
 const CamperPage = () => {
-  const [camper, setCamper] = useState(null);
+  const dispatch = useDispatch();
+  const camper = useSelector(selectCamperById);
+
+  // const [camper, setCamper] = useState(null);
   const { camperId } = useParams();
 
   useEffect(() => {
-    const fetchCamperById = async id => {
-      try {
-        const data = await getCamperById(id);
-        console.log(data);
-        setCamper(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchCamperById(camperId);
-  }, [camperId]);
+    dispatch(getCamperByIdThunk(camperId));
+  }, [dispatch, camperId]);
+
+  // useEffect(() => {
+  //   const fetchCamperById = async id => {
+  //     try {
+  //       const data = await getCamperById(id);
+  //       console.log(data);
+  //       setCamper(data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   fetchCamperById(camperId);
+  // }, [camperId]);
 
   if (!camper) {
     return <h2>Loading...</h2>;

@@ -2,11 +2,15 @@ import { NavLink } from 'react-router-dom';
 
 import s from './CamperCardList.module.css';
 import css from '../PrimaryButton/PrimaryButton.module.css';
-const CamperCardList = ({ items }) => {
+import { selectCampers } from '../../redux/campers/selectors.js';
+import { useSelector } from 'react-redux';
+
+const CamperCardList = () => {
+  const campers = useSelector(selectCampers);
   // console.log(camper.gallery[0].original);
   return (
     <ul>
-      {items.map((camper, index) => (
+      {campers.map((camper, index) => (
         <li key={index} className={s.card}>
           <div className={s.imgWrapper}>
             <img

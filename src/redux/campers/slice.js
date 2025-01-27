@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { fetchCampersThunk, getCamperByIdThunk } from './operations.js';
+
 const initialState = {
   campers: [],
   selectedCamper: null,
@@ -28,13 +30,22 @@ export const slice = createSlice({
     setPage: (state, action) => {
       state.page += 1;
     },
-
-    // increment: (state, action) => {
-    //   state.campers += state.step;
-    //   state.step += 1;
-    // },
-    // reset: (state, action) => {
-    //   return initialState;
+  },
+  extraReducers: builder => {
+    builder
+      .addCase(fetchCampersThunk.fulfilled, (state, action) => {
+        state.campers = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(fetchCampersThunk.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(getCamperByIdThunk.fulfilled, (state, action) => {
+        state.selectedCamper = action.payload;
+      })
+      .addCase(getCamperByIdThunk.pending, (state, action) => {
+        state.isLoading = true;
+      });
   },
 });
 

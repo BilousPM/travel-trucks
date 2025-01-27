@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 
 const CamperCardList = () => {
   const campers = useSelector(selectCampers);
+
   // console.log(camper.gallery[0].original);
   return (
     <ul>

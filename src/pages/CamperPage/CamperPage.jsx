@@ -3,21 +3,29 @@ import s from './CamperPage.module.css';
 import { useEffect } from 'react';
 import BookForm from '../../components/BookForm/BookForm.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCamperById } from '../../redux/campers/selectors.js';
+import {
+  selectCamperById,
+  selectIsError,
+} from '../../redux/campers/selectors.js';
 import { getCamperByIdThunk } from '../../redux/campers/operations.js';
 
 const CamperPage = () => {
   const dispatch = useDispatch();
   const camper = useSelector(selectCamperById);
 
+  const isError = useSelector(selectIsError);
   const { camperId } = useParams();
 
   useEffect(() => {
     dispatch(getCamperByIdThunk(camperId));
   }, [dispatch, camperId]);
 
+  if (isError) {
+    return <h2> something went wrong</h2>;
+  }
+
   if (!camper) {
-    return <h2>Loading...</h2>;
+    return <h2>Loading ...!</h2>;
   }
 
   return (

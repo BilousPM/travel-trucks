@@ -1,5 +1,18 @@
 import axios from 'axios';
 
+// export const getCampers = async (query, page = 1, limit = 3) => {
+//   // console.log(query, page);
+//   const response = await camperApi.get('campers', {
+//     params: {
+//       page,
+//       limit,
+//       ...query,
+//     },
+//   });
+
+//   return response.data.items;
+// };
+
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io';
@@ -8,7 +21,9 @@ export const fetchCampersThunk = createAsyncThunk(
   'fetchCampers',
   async (_, thunkAPI) => {
     try {
-      const { data } = await axios.get('campers');
+      const { data } = await axios.get('campers', {
+        params: { page: 1, limit: 5 },
+      });
       return data.items;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -23,10 +38,12 @@ export const getCamperByIdThunk = createAsyncThunk(
       const { data } = await axios.get(`campers/${id}`);
       return data;
     } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   },
 );
+
+// export const getCamperByFil
 
 // export const fetchCampersThunk = () => async dispatch => {
 //   try {

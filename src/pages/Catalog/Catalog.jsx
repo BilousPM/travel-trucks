@@ -13,7 +13,7 @@ import {
   selectCampers,
   selectIsLoading,
 } from '../../redux/campers/selectors.js';
-import { setPage } from '../../redux/campers/slice.js';
+// import { setPage } from '../../redux/campers/slice.js';
 // import AutoCompleteInput from '../../components/LocationInput/LocationInput.jsx';
 
 // const suggestions = [

@@ -14,23 +14,6 @@ const initialState = {
 export const slice = createSlice({
   name: 'campers',
   initialState,
-  reducers: {
-    fetchCampers: (state, action) => {
-      state.campers = action.payload;
-    },
-    fetchCamperById: (state, action) => {
-      state.selectedCamper = action.payload;
-    },
-    setIsLoadingStatus: (state, action) => {
-      state.isLoading = action.payload;
-    },
-    setErrorStatus: (state, action) => {
-      state.isError = action.payload;
-    },
-    setPage: (state, action) => {
-      state.page += 1;
-    },
-  },
   extraReducers: builder => {
     builder
       .addCase(fetchCampersThunk.fulfilled, (state, action) => {
@@ -40,20 +23,20 @@ export const slice = createSlice({
       .addCase(fetchCampersThunk.pending, (state, action) => {
         state.isLoading = true;
       })
-      .addCase(getCamperByIdThunk.fulfilled, (state, action) => {
-        state.selectedCamper = action.payload;
-      })
       .addCase(getCamperByIdThunk.pending, (state, action) => {
         state.isLoading = true;
+        state.isError = false;
+      })
+      .addCase(getCamperByIdThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.selectedCamper = action.payload;
+        state.isError = false;
+      })
+      .addCase(getCamperByIdThunk.rejected, (state, action) => {
+        state.isError = true;
+        state.isLoading = false;
       });
   },
 });
 
 export const campersReducer = slice.reducer;
-export const {
-  setIsLoadingStatus,
-  setErrorStatus,
-  fetchCampers,
-  fetchCamperById,
-  setPage,
-} = slice.actions;

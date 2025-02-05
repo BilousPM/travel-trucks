@@ -3,8 +3,21 @@ import PrimaryButton from '../PrimaryButton/PrimaryButton.jsx';
 import s from './FiltrationForm.module.css';
 import { Field, Form, Formik } from 'formik';
 import clsx from 'clsx';
+import { useDispatch } from 'react-redux';
+import { setPages, setSelectedValue } from '../../redux/campers/slice.js';
 
-const FiltrationForm = ({ setCampers, suggestions, handleQuery, setPage }) => {
+const suggestions = [
+  'Kyiv',
+  'Poltava',
+  'Dnipro',
+  'Odesa',
+  'Kharkiv',
+  'Sumy',
+  'Lviv',
+];
+
+const FiltrationForm = () => {
+  const dispatch = useDispatch();
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
   const [isSuggestionsVisible, setSuggestionsVisible] = useState(false);
 
@@ -25,17 +38,14 @@ const FiltrationForm = ({ setCampers, suggestions, handleQuery, setPage }) => {
       ),
     );
 
-    handleQuery([]);
-    setCampers([]);
-    setPage(1);
-    handleQuery(filteredData);
+    dispatch(setSelectedValue(filteredData));
+    dispatch(setPages(1));
     actions.resetForm();
   };
 
   const handleInputChange = (e, setFieldValue) => {
     const value = e.target.value;
     setFieldValue('location', value);
-    console.log(value);
 
     if (value.trim() !== '') {
       const filtered = suggestions.filter(suggestion =>

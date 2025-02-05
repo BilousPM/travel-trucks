@@ -12,60 +12,32 @@ import { fetchCampersThunk } from '../../redux/campers/operations.js';
 import {
   selectCampers,
   selectIsLoading,
+  selectPage,
+  selectSelectedValue,
+  selectTotalPages,
 } from '../../redux/campers/selectors.js';
+import { loadMore } from '../../redux/campers/slice.js';
+// import { setPages } from '../../redux/campers/slice.js';
 // import { setPage } from '../../redux/campers/slice.js';
 // import AutoCompleteInput from '../../components/LocationInput/LocationInput.jsx';
-
-// const suggestions = [
-//   'Kyiv',
-//   'Poltava',
-//   'Dnipro',
-//   'Odesa',
-//   'Kharkiv',
-//   'Sumy',
-//   'Lviv',
-// ];
 
 const Catalog = () => {
   const dispatch = useDispatch();
   const campers = useSelector(selectCampers);
   const isLoading = useSelector(selectIsLoading);
+  const query = useSelector(selectSelectedValue);
+  const page = useSelector(selectPage);
+  const totalPages = useSelector(selectTotalPages);
 
   useEffect(() => {
-    dispatch(fetchCampersThunk());
-  }, [dispatch]);
-  // const [selectedValue, setSelectedValue] = useState('');
-  // const [campers, setCampers] = useState([]);
-  // const [loading, setLoading] = useState(true);
-  // const [page, setPage] = useState(1)
-
-  // useEffect(() => {
-  //   const fetchCampersList = async query => {
-  //     try {
-  //       setLoading(true);
-  //       const data = await getCampers(query, page);
-  //       setCampers(prev => [...prev, ...data]);
-  //     } catch (e) {
-  //       console.log(e);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchCampersList(selectedValue);
-  // }, []);
-
+    dispatch(fetchCampersThunk({ page, query }));
+  }, [dispatch, query, page]);
   return (
     <section className={s.section}>
       <div className="container">
         <div className={s.sectionWrapper}>
           <div className={s.formWrapper}>
-            <FiltrationForm
-            // suggestions={suggestions}
-            // handleQuery={setSelectedValue}
-            // setCampers={setCampers}
-            // setPage={setPage}
-            />
+            <FiltrationForm />
           </div>
 
           <div className={s.cardsWrapper}>
@@ -77,14 +49,13 @@ const Catalog = () => {
                 Something Went Wrong ! Try again...
               </p>
             )}
-            {campers.length > 0 && (
+            {campers.length < totalPages && (
               <button
                 type="button"
-                onClick={() => {
-                  dispatch(setPage());
-                  // setPage(pref => pref + 1);
-                }}
                 className={s.loadMore}
+                onClick={() => {
+                  dispatch(loadMore());
+                }}
               >
                 Load more
               </button>

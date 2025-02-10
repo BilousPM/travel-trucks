@@ -71,6 +71,7 @@ const FiltrationForm = () => {
           <h2 className={s.label}>Location</h2>
           <label className={s.wrapper}>
             <Field
+              placeholder="City"
               name="location"
               className={s.locationInput}
               type="text"

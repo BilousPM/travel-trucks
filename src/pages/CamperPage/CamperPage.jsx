@@ -1,4 +1,10 @@
-import { NavLink, Outlet, useParams } from 'react-router-dom';
+import {
+  NavLink,
+  Outlet,
+  useLocation,
+  useNavigate,
+  useParams,
+} from 'react-router-dom';
 import s from './CamperPage.module.css';
 import { useEffect } from 'react';
 import BookForm from '../../components/BookForm/BookForm.jsx';
@@ -11,14 +17,23 @@ import { getCamperByIdThunk } from '../../redux/campers/operations.js';
 
 const CamperPage = () => {
   const dispatch = useDispatch();
-  const camper = useSelector(selectCamperById);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const isError = useSelector(selectIsError);
   const { camperId } = useParams();
+
+  const camper = useSelector(selectCamperById);
+  const isError = useSelector(selectIsError);
 
   useEffect(() => {
     dispatch(getCamperByIdThunk(camperId));
   }, [dispatch, camperId]);
+
+  useEffect(() => {
+    if (location.pathname === `/catalog/${camperId}`) {
+      navigate('features', { replace: true });
+    }
+  }, [navigate, location.pathname, camperId]);
 
   if (isError) {
     return <h2> something went wrong</h2>;

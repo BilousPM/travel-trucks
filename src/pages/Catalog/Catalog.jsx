@@ -16,7 +16,7 @@ import {
   selectSelectedValue,
   selectTotalPages,
 } from '../../redux/campers/selectors.js';
-import { loadMore } from '../../redux/campers/slice.js';
+import { loadMore, resetCampers } from '../../redux/campers/slice.js';
 // import { setPages } from '../../redux/campers/slice.js';
 // import { setPage } from '../../redux/campers/slice.js';
 // import AutoCompleteInput from '../../components/LocationInput/LocationInput.jsx';
@@ -30,6 +30,7 @@ const Catalog = () => {
   const totalPages = useSelector(selectTotalPages);
 
   useEffect(() => {
+    dispatch(resetCampers());
     dispatch(fetchCampersThunk({ page, query }));
   }, [dispatch, query, page]);
   return (

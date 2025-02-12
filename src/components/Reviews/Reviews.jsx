@@ -9,22 +9,25 @@ const Reviews = () => {
   return (
     <div className={s.reviewWrapper}>
       <ul>
-        {camper.reviews.map(review => {
-          <li>
-            <div></div>
-            <h2>{review.reviewer_name}</h2>
-            <span>*</span>
-            <p>{review.coment} </p>
-          </li>;
+        {camper.reviews.map((review, index) => {
+          return (
+            <li key={index}>
+              <div className={s.avatarNameWrap}>
+                <div className={s.avatar}>
+                  <span className={s.avatarLetter}>
+                    {review.reviewer_name[0].toUpperCase()}
+                  </span>
+                </div>
+                <div>
+                  <h2>{review.reviewer_name}</h2>
+                  <span>*</span>
+                </div>
+              </div>
+              <p>{review.comment} </p>
+            </li>
+          );
         })}
-
-        <li>
-          <div></div>
-          <h2>Name</h2>
-          <span>*</span>
-        </li>
       </ul>
-      <p></p>
     </div>
   );
 };

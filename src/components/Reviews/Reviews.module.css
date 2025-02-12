@@ -1,3 +1,24 @@
 .reviewWrapper {
   width: 631px;
 }
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f2f4f7;
+}
+
+.avatarLetter {
+  color: var(--accent-button-color);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.avatarNameWrap {
+  display: flex;
+  gap: 16px;
+}

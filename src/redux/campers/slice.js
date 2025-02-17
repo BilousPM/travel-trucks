@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-
 import { fetchCampersThunk, getCamperByIdThunk } from './operations.js';
 
 const initialState = {
@@ -40,10 +39,13 @@ export const slice = createSlice({
   },
   extraReducers: builder => {
     builder
+      .addCase(fetchCampersThunk.pending, (state, action) => {
+        state.isLoading = true;
+      })
       .addCase(fetchCampersThunk.fulfilled, (state, action) => {
         state.totalPages = +action.payload.total;
         state.campers = [...state.campers, ...action.payload.items];
-        // state.isLoading = false;
+        state.isLoading = false;
       })
       .addCase(getCamperByIdThunk.fulfilled, (state, action) => {
         state.isLoading = false;

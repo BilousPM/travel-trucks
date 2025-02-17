@@ -31,8 +31,15 @@ const Catalog = () => {
 
   useEffect(() => {
     dispatch(resetCampers());
+  }, [dispatch]);
+
+  useEffect(() => {
     dispatch(fetchCampersThunk({ page, query }));
   }, [dispatch, query, page]);
+
+  if (isLoading) {
+    return <h1>Loadding ....</h1>;
+  }
   return (
     <section className={s.section}>
       <div className="container">

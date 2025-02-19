@@ -1,13 +1,5 @@
-import s from './Catalog.module.css';
-// import Filters from '../../components/Filters/Filters.jsx';
-import { useEffect } from 'react';
-
-// import { PropagateLoader } from 'react-spinners';
-
-// import { getCampers } from '../../config/campersApi.js';
-import FiltrationForm from '../../components/FiltrationForm/FiltrationForm.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import CamperCardList from '../../components/CamperCardList/CamperCardList.jsx';
+import { useEffect } from 'react';
 import { fetchCampersThunk } from '../../redux/campers/operations.js';
 import {
   selectCampers,
@@ -17,9 +9,9 @@ import {
   selectTotalPages,
 } from '../../redux/campers/selectors.js';
 import { loadMore, resetCampers } from '../../redux/campers/slice.js';
-// import { setPages } from '../../redux/campers/slice.js';
-// import { setPage } from '../../redux/campers/slice.js';
-// import AutoCompleteInput from '../../components/LocationInput/LocationInput.jsx';
+import FiltrationForm from '../../components/FiltrationForm/FiltrationForm.jsx';
+import CamperCardList from '../../components/CamperCardList/CamperCardList.jsx';
+import s from './Catalog.module.css';
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -38,7 +30,7 @@ const Catalog = () => {
   }, [dispatch, query, page]);
 
   if (isLoading) {
-    return <h1>Loadding ....</h1>;
+    return <h1>Loading ....</h1>;
   }
   return (
     <section className={s.section}>

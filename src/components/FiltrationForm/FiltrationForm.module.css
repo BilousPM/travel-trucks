@@ -7,10 +7,22 @@
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 1.2px;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   appearance: none;
   outline: none;
 }
+
+.icon {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  fill: #6c717b;
+}
+
+.locationInput:not(:placeholder-shown) + .icon {
+  fill: #101828;
+}
+
 .label {
   display: inline-block;
   color: #6c717b;
@@ -21,9 +33,44 @@
   margin-bottom: 8px;
 }
 
-.labelFilter {
-  margin-bottom: 32px;
+.wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 40px;
 }
+.inputWrapper {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.listOfTips {
+  display: flex;
+  gap: 4px;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  background-color: #f7f7f7;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  border-top: none;
+  list-style: none;
+  padding: 8px 8px;
+  margin: '0';
+  z-index: '1000';
+  overflow-y: auto;
+  width: 100%;
+}
+
+.tipItem {
+  padding: 8px 12px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  box-shadow: 2px 2px 4px 3px #dadde1;
+  border-radius: 12px;
+}
+
+/* vehicle equipment  ============================== */
 
 .itemGroupLabel {
   margin-bottom: 24px;
@@ -47,57 +94,48 @@
   margin-bottom: 32px;
 }
 
-.itemWrapperVehicleType {
-  margin-bottom: 40px;
-}
-
 .item {
+  display: flex;
+  flex-direction: column;
   border-radius: 12px;
-  padding: 16px 0;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   width: 112px;
   height: 96px;
   border: 1px solid #dadde1;
 }
 
-/* ----------- */
-.wrapper {
-  position: relative;
-  width: 100%;
+.checkbox {
+  display: none;
+  /* appearance: none; */
+}
+
+.checkbox:checked .item {
+  background-color: aquamarine;
+}
+
+.isActive {
+  border-color: #e44848;
+}
+
+.equipmentIcon {
+  margin: 0 auto;
+  display: block;
+  fill: #101828;
+  margin-bottom: 8px;
+}
+
+.checkboxSpan {
+  user-select: none;
+}
+
+.labelFilter {
+  margin-bottom: 32px;
+}
+
+.itemWrapperVehicleType {
   margin-bottom: 40px;
 }
 
-.listOfTips {
-  /* display: flex;
-  row-gap: 8px;
-  column-gap: 12px;
-  flex-wrap: wrap; */
-
-  position: absolute;
-  top: 150%;
-  left: 0;
-  right: 0;
-  background-color: #f7f7f7;
-  border-bottom-left-radius: 4px;
-  border-top: none;
-  list-style: none;
-  padding: 8px 8px;
-  margin: '0';
-  z-index: '1000';
-  overflow-y: auto;
-  width: 100%;
-}
-
-.tipItem {
-  padding: 8px 12px;
-  cursor: pointer;
-  background-color: #f9f9f9;
-  box-shadow: 2px 2px 4px 3px #dadde1;
-}
-
-.icon {
-  stroke: black;
-  width: 32px;
-  height: 32px;
-  fill: aqua;
-}
+/* ----------- */

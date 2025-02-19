@@ -46,20 +46,35 @@ const BookForm = () => {
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form className={s.form}>
           <label>
-            <Field type="name" name="name" className={s.input} />
+            <Field
+              type="name"
+              name="name"
+              className={s.input}
+              placeholder="Name*"
+            />
           </label>
           <label>
-            <Field type="mail" name="email" className={s.input} />
+            <Field
+              type="mail"
+              name="email"
+              className={s.input}
+              placeholder="Email*"
+            />
           </label>
           <label>
-            {' '}
-            <Field type="data" name="date" className={s.input} />
+            <Field
+              type="data"
+              name="date"
+              className={s.input}
+              placeholder="Booking date*"
+            />
           </label>
           <label>
             <Field
               as="textarea"
               name="comment"
               className={clsx(s.input, s.textarea)}
+              placeholder="Comment"
             />
           </label>
           <PrimaryButton label="Send" />
